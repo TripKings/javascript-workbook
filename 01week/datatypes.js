@@ -31,6 +31,22 @@ console.log(greeting); //datatype string
 var sum = 5 + 3;
 console.log(sum) // adds two numbers together
 
+var x = 6
+var y = 3
+
+if(x < 10 && y > 1) {
+    console.log("Both are TRUE")
+}
+
+if(x == 6 || y == 0) {
+    console.log("One of these is TRUE")
+}
+
+if(x !== 2 && y !== 0) {
+    console.log("Neither is TRUE")
+}
+
+
 
 
 
