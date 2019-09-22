@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// piglatin('apple')
+// piglatin('brother')
 function pigLatin(word) {
   let trimWord = word.trim().toLowerCase();// triming the word and making it lowercase
 
