@@ -147,9 +147,10 @@ function whoseTurn() {
 
 function correctInput(row, column) {
   if (
-    (row === "0" || row === "1" || row === "2") &&
-    (column === "0" || column === "1" || column === "2")
+    (row == "0" || row == "1" || row == "2") &&
+    (column == "0" || column == "1" || column == "2")
   ) {
+    console.log("correct input")
     return true;
   } else {
     return false;
@@ -158,6 +159,7 @@ function correctInput(row, column) {
 
 function isEmpty(row, column) {
   if (board[row][column] === " ") {
+    console.log("is empty")
     return true;
   } else {
     return false;
@@ -174,6 +176,7 @@ function ticTacToe(row, column) {
     }
   } else console.log("input invalid");
 }
+
 
 // Your code here
 
