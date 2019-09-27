@@ -1,17 +1,6 @@
-// for(var i=1; i<= 100; i++) {
-//     console.log(i)
-// }
-
-
-// for(var i=2; i<=100; i+=2) {
-//     console.log(i)
-// }
-
-var sum = 0;
-var num = 1;
-
-while(num=100){
-    sum = sum + num;
-    num = num +1;
+for (var i=1; i <= 50; i++){
+    if (i % 5 === 0 && i % 3 === 0) console.log("FizzBuzz");
+    else if (i % 3 == 0) console.log("Fizz");
+    else if (i % 5 == 0) console.log("Buzz");
+    else console.log(i);
 }
-console.log(num)

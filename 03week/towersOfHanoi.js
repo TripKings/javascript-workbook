@@ -1,3 +1,4 @@
+  
 'use strict';
 
 const assert = require('assert');
@@ -19,49 +20,48 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece(startStack, endStack) {
-  if(isLegal(startStack, endStack) === true) {
-    return true;
-  } else {
-    console.log("Invalid move")
-  }
-  // Your code here
-
-}
-
 function isLegal(startStack, endStack) {
-  if((startStack === 'a' || startStack === 'b' || startStack === 'c') && (endStack === 'a' || endStack === 'b' || endStack === 'c')) {
-    if(startStack[startStack].lenght - 1 , stacks[endStack].lenght) {
+  console.log(endStack)
+  if ((startStack === 'a' || startStack === 'b' || startStack === 'c') &&
+  (endStack === 'a' || endStack === 'b' || endStack === 'c')) {
+    let lastIndexStart = stacks[startStack].length - 1;
+    let lastIndexEnd = stacks[endStack].length - 1;
+    const moveTo = stacks[endStack];
+
+    const moveFrom = stacks[startStack];
+    if ((moveFrom[lastIndexStart] < moveTo[lastIndexEnd]) || (moveTo.length === 0)) {
+      console.log('legal')
       return true;
     } else {
+      console.log("Invalid entry");
       return false;
     }
   } else {
-    console.log("Invalid entry")
+    console.log("Invalid entry");
   }
-} 
-  // Your code here
+}
+
+function movePiece(startStack, endStack) {
+  let grabbed = stacks[startStack].pop(); 
+  console.log(grabbed)
+  stacks[endStack].push(grabbed);
+
+}
 
 
 
 function checkForWin(startStack, endStack) {
-  if(stacks.c.lenght === 4) {
-    console.log("You Win!");
+  if (stacks.c.length === 4) {
+    console.log("You win!");
   } else {
-    getPrompt();
   }
 }
-  // Your code here
-
-
 
 function towersOfHanoi(startStack, endStack) {
-  if(isLegal(startStack, endStack)) {
+  if (isLegal(startStack, endStack) === true) {
     movePiece(startStack, endStack);
     checkForWin(startStack, endStack);
   }
-  // Your code here
-
 }
 
 function getPrompt() {
