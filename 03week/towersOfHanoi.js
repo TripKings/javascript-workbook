@@ -1,4 +1,3 @@
-  
 'use strict';
 
 const assert = require('assert');
@@ -48,13 +47,15 @@ function movePiece(startStack, endStack) {
 
 }
 
-
-
-function checkForWin(startStack, endStack) {
-  if (stacks.c.length === 4) {
+function checkForWin() {
+  if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
     console.log("You win!");
+    return true;
   } else {
+    return false;
+
   }
+
 }
 
 function towersOfHanoi(startStack, endStack) {
@@ -106,6 +107,8 @@ if (typeof describe === 'function') {
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      assert.equal(checkForWin(), true);
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
