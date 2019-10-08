@@ -10,8 +10,7 @@ const rl = readline.createInterface({
 let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-let correctLetter = 0;
-let correctLocation = 0;
+
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -30,45 +29,51 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint(guess, solution) {
+function generateHint(guess) {
   const sArray = solution.split('');
   const gArray = guess.split('');
-  let targetIndex = null;
+  let correctLetter = 0;
+  let correctLocation = 0;
   for(let i = 0; i < sArray.length; i++) {
-    for(let t =0; i < gArray.length; i++) {
-      if((i === t) && (sArray[i] === gArray[i]) && (sArray[i] !== null)) {
-        sArray[i] = null;
-        correctLocation++;
-        console.log('correctLocation:', correctLocation)
-      }else if (i !== t) {
-        targetIndex = sArray.indexOf(gArray[t]);
-        console.log('targetIndex:', targetIndex)
-        if(targetIndex > -1) {
-          correctLetter++;
-          console.log('correctLetter:', correctLetter)
-        }
+    console.log('location loop', i)
+      if(gArray[i] === sArray[i]) {
+        console.log('g', gArray, 's', sArray)
+        console.log('at correct locations', i)
+        correctLocation+=1;
+        sArray[i] = null; 
+        console.log('after nulling: g', gArray, 's', sArray)
+        // console.log('correctLocation:', correctLocation, 'index', i)
       }
-    }
-    if(gArray[i] === sArray[i]) {
-      correctLetter++
-      sArray[i] = null;
-      console.log('correctLocation:', correctLocation)
-    }else {
-      correctLocation = 0;
-    }
   }
-  return `${correctLocation} - ${correctLetter}`
+
+  for (let j = 0; j < sArray.length; j++) {
+    console.log('letter loop', j)
+    const targetIndex = sArray.indexOf(gArray[j]);
+    // console.log('targetIndex:', targetIndex)
+    if(targetIndex > -1) {
+      correctLetter++;
+      sArray[targetIndex] = null;
+      // console.log('correctLetter:', correctLetter, 'index:', j)
+    }
+      // console.log('sArray', sArray)
+      // console.log('solution', solution)
+  }
+  return `${correctLetter}-${correctLocation}`
 }
 
 function mastermind(guess) {
   solution = 'abcd';
-  if(guess == solution){
+  if(guess === solution){
   console.log('You guessed it!')
+  return 'You guessed it!'
   }else{
-    const hint = generateHint(guess, solution)
+    var hint = generateHint(guess)
+    var hintGuess = guess + hint;
+    board.push(hintGuess)
     return hint;
   }
 }
+
 
 
 function getPrompt() {
