@@ -58,7 +58,7 @@ function generateHint(guess) {
       // console.log('sArray', sArray)
       // console.log('solution', solution)
   }
-  return `${correctLetter}-${correctLocation}`
+  return `${correctLocation}-${correctLetter}`
 }
 
 function mastermind(guess) {
