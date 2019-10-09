@@ -18,7 +18,7 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
+//This is starting to build the rules of the game and how pieces should start and end to indacate a win.
 function isLegal(startStack, endStack) {
   console.log(endStack)
   if ((startStack === 'a' || startStack === 'b' || startStack === 'c') &&
@@ -26,7 +26,7 @@ function isLegal(startStack, endStack) {
     let lastIndexStart = stacks[startStack].length - 1;
     let lastIndexEnd = stacks[endStack].length - 1;
     const moveTo = stacks[endStack];
-
+//this is telling you if the move you made is legal or not by the size of the stack. 
     const moveFrom = stacks[startStack];
     if ((moveFrom[lastIndexStart] < moveTo[lastIndexEnd]) || (moveTo.length === 0)) {
       console.log('legal')
@@ -39,14 +39,14 @@ function isLegal(startStack, endStack) {
     console.log("Invalid entry");
   }
 }
-
+//this will move pieces around the board
 function movePiece(startStack, endStack) {
   let grabbed = stacks[startStack].pop(); 
   console.log(grabbed)
   stacks[endStack].push(grabbed);
 
 }
-
+//this checks the b or c colum for a win if not return false. 
 function checkForWin() {
   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
     console.log("You win!");
@@ -57,7 +57,7 @@ function checkForWin() {
   }
 
 }
-
+//this are the rules of towers and how to check for a win
 function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack) === true) {
     movePiece(startStack, endStack);
