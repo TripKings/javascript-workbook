@@ -35,19 +35,19 @@ function generateHint(guess) {
   let correctLetter = 0;
   let correctLocation = 0;
   for(let i = 0; i < sArray.length; i++) {
-    console.log('location loop', i)
+    // console.log('location loop', i)
       if(gArray[i] === sArray[i]) {
-        console.log('g', gArray, 's', sArray)
-        console.log('at correct locations', i)
-        correctLocation+=1;
+        // console.log('g', gArray, 's', sArray)
+        // console.log('at correct locations', i)
+        correctLocation++;
         sArray[i] = null; 
-        console.log('after nulling: g', gArray, 's', sArray)
+        // console.log('after nulling: g', gArray, 's', sArray)
         // console.log('correctLocation:', correctLocation, 'index', i)
       }
   }
 
   for (let j = 0; j < sArray.length; j++) {
-    console.log('letter loop', j)
+    // console.log('letter loop', j)
     const targetIndex = sArray.indexOf(gArray[j]);
     // console.log('targetIndex:', targetIndex)
     if(targetIndex > -1) {
@@ -64,7 +64,7 @@ function generateHint(guess) {
 function mastermind(guess) {
   solution = 'abcd';
   if(guess === solution){
-  console.log('You guessed it!')
+  // console.log('You guessed it!')
   return 'You guessed it!'
   }else{
     var hint = generateHint(guess)

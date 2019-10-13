@@ -8,13 +8,14 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+class Checker {
   // Your code here
 }
 
 class Board {
   constructor() {
-    this.grid = []
+    this.grid = [] 
+    this.checkers = []
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -51,11 +52,41 @@ class Board {
     }
     console.log(string);
   }
-
-  // Your code here
+  createCheckers() {
+    for(let row =0; row < 8; row++){
+      for(let col = 0; col < 8; col++)
+        if((row + col) % 2 === 1 && row < 3) {
+          const newChecker = new Checker("x", row, col);
+          this.gird[row][col] = newChecker; 
+          this.checkers.push(newChecker);
+      }   else if ((row + col) % 2 === 1 && row > 4) {
+          const newChecker = new Checker("o", row, col); 
+          this.gird[row][col] = newChecker;
+          this.checkers.push(newChecker);
+      }
+    }
+}
 }
 
-class Game {
+  findPiece(coordinate) {
+    const row = coordinate[0];
+    const col = coordinate[1];
+    const currentPiece = this.checkers.find(checker => {
+      return checker.row === row && checker.col === col;
+    });
+    return currentPiece;
+  }
+
+  removePiece(currentPiece) {
+    const row = currentPiece.row;
+    const col = currentPiece.col;
+    this.gird[row][col] = null; 
+    const index = this.checkers.indexOf(currentPiece);
+    this.checkers.splice(index, 1);
+  }
+
+
+  class Game {
   constructor() {
     this.board = new Board;
   }
