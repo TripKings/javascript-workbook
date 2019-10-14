@@ -68,10 +68,25 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
+    it('should detect which hand lost', () => {
+      assert.equal(rockPaperScissors('rock', 'paper'), "Hand one looses!");
+      assert.equal(rockPaperScissors('paper', 'scissors'), "Hand one looses!");
+      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand two looses!");
+    });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('should scrub input if just a letter is entered, () => {
+      assert.equal(rockPaperScissors('R', ' P '), "Hand two wins!");
+      assert.equal(rockPaperScissors('P', 'S'), "Hand two wins!");
+      assert.equal(rockPaperScissors('R ', 'S'), "Hand one wins!");
+    });
+    it('should detect wrong input, () => {
+      assert.equal(rockPaperScissors('rOcK', ' hammer '), "Invalid entry!");
+      assert.equal(rockPaperScissors('Paper', 'car'), "Invalid entry!");
+      assert.equal(rockPaperScissors('rock ', 'baby'), "Invalid entry!");
     });
   });
 } else {
