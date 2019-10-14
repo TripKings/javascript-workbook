@@ -56,7 +56,7 @@ const arrayOfPersons = [
 ]
 
 arrayOfPersons.map(function(items){
-    // console.log(items)
+    console.log(items)
 })
 
 function checkGender() {
@@ -75,7 +75,7 @@ function checkAge() {
         var lastIndex = person.birthDate.length -1;
         var date = person.birthDate.slice(lastIndex -4, lastIndex +1)
         if(date <= 1990 ){
-            console.log(person)
+            // console.log(person)
         }
 
     })
