@@ -201,7 +201,7 @@ const makeBluePlayer = id => {
     true,
     true,
     4,
-    "Dragon",
+    "Turtles",
     "Blue"
   );
   blueTeam.push(newBluePlayer);
