@@ -248,56 +248,28 @@ const makeRedPlayer = id => {
 };
 
 //tests
-// let assert = require('assert');
+let assert = require('assert');
 
-// if (typeof describe === 'function'){
-//   describe('Player', function(){
-//     it('should throw a ball, dodge a ball, has paid dues, is healthy, has experience', function(){
-//       let newPlayer = new Player('newPlayer.id', 'newPlayer.name', 'newPlayer.age', 'newPlayer.skillSet', 'newPlayer.placeBorn', true, true, true, true, 4);
-//       assert.equal(newPlayer.canThrowBall, true);
-//       assert.equal(newPlayer.canDodgeBall, true);
-//       assert.equal(newPlayer.hasPaid, true);
-//       assert.equal(newPlayer.isHealthy, true);
-//       assert.equal(newPlayer.yearsExperience, 4);
-//     });
-//   });
-//   it('should be able to become a Red Player', function(){
-//     let
-//   });
-//   it('should be able to become a Blue Player', function(){
-    
-//   });
-// }
-
-// Tests
-
- // when running test comment out line 109, 110, 111, 158 and 169 !!!
- // when running test, comment out line 103, 104, 105, 133, 134, 135, 136, 145, 146, 147, 148, 152 and 163 !!!
- // uncomment line 3!
-
-// const assert = require('assert');
-
-//  if (typeof describe === 'function') {
-//   describe('#makePlayer()', () => {
-//     it('should move clicked person to player class', () => {
-//       makePlayer(1);
-//       assert.equal(listOfPlayers[0].name, "Alex Borsbach");
-//     });
-//     it('should move clicked player to a listBluePlayers list', () => {
-//       listBluePlayers(1);
-//       assert.equal(listBluePlayers[0]);
-//       makeBlue(1);
-//       assert.equal(blueTeam[0].name, "Alex Borsbach");
-//     });
-//     it('should move clicked player to a listRedPlayers list', () => {
-//       listRedPlayers(1);
-//       assert.equal(listRedPlayers[0]);
-//       makeRed(2);
-//       assert.equal(redTeam[0].name, "Charles Young");
-//     });
-//   });
-// }
-
+if (typeof describe === 'function'){
+  describe('Player', function(){
+    it('should be able to become a red Player', function(){
+      if (listOfPlayers.id == 2 && redTeam.id == 2) {
+        return true;
+      }
+    });
+  });
+  it('should be able to become a player', function(){
+    if (arrOfPeople.id == 2 && listOfPlayer.id == 2) {
+      return true;
+    }
+  });
+  it('should be able to become a blue Player', function(){
+    if (listOfPlayers.id == 2 && blueTeam.id == 2) {
+      return true;
+    }
+  });
+  
+}
 
 
 //create a higher order function that "removes" player from "list of people"
