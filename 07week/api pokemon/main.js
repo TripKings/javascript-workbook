@@ -5,7 +5,7 @@ window.onload = function () {
 
 
 let getBrewery = function() {
-    fetch('https://sandbox-api.brewerydb.com/v2/?key=94abd6fc20a5c6b02c0568268f70d2dc')
+    fetch('https://api.openbrewerydb.org/breweries?by_state=texas')
         .then(function (response) {
         return response.json();
     })
