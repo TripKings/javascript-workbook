@@ -112,6 +112,8 @@ class Teammate  extends Player{
 
 const listPeopleChoices = () => {
   const listElement = document.getElementById("people");
+  var elm = document.querySelector('button');
+  elm.style.display = 'none';
   arrOfPeople.map(person => {
     const li = document.createElement("li");
     const button = document.createElement("button");
