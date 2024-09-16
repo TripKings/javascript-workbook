@@ -11,6 +11,7 @@ let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
@@ -28,14 +29,51 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(guess) {
+  const sArray = solution.split('');
+  const gArray = guess.split('');
+  let correctLetter = 0;
+  let correctLocation = 0;
+  for(let i = 0; i < sArray.length; i++) {
+    // console.log('location loop', i)
+      if(gArray[i] === sArray[i]) {
+        // console.log('g', gArray, 's', sArray)
+        // console.log('at correct locations', i)
+        correctLocation++;
+        sArray[i] = null; 
+        // console.log('after nulling: g', gArray, 's', sArray)
+        // console.log('correctLocation:', correctLocation, 'index', i)
+      }
+  }
+
+  for (let j = 0; j < sArray.length; j++) {
+    // console.log('letter loop', j)
+    const targetIndex = sArray.indexOf(gArray[j]);
+    // console.log('targetIndex:', targetIndex)
+    if(targetIndex > -1) {
+      correctLetter++;
+      sArray[targetIndex] = null;
+      // console.log('correctLetter:', correctLetter, 'index:', j)
+    }
+      // console.log('sArray', sArray)
+      // console.log('solution', solution)
+  }
+  return `${correctLocation}-${correctLetter}`
 }
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  solution = 'abcd';
+  if(guess === solution){
+  // console.log('You guessed it!')
+  return 'You guessed it!'
+  }else{
+    var hint = generateHint(guess)
+    var hintGuess = guess + hint;
+    board.push(hintGuess)
+    return hint;
+  }
 }
+
 
 
 function getPrompt() {
